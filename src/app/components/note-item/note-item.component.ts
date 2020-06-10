@@ -10,9 +10,9 @@ export class NoteItemComponent implements OnInit {
    * props
    */
   @Input()
-  private title: string = '';
+  title: string = '';
   @Input()
-  private content: string = '';
+  content: string = '';
 
   ngOnInit() {
     console.log('This is note item');
