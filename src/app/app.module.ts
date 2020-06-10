@@ -5,17 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NoteListComponent } from './components/note-list/note-list.component';
+import { NoteItemComponent } from './components/note-item/note-item.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NoteListComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, NoteListComponent, NoteItemComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
