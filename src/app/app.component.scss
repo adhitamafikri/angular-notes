@@ -1,0 +1,17 @@
+.c-header {
+  background: palevioletred;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 46px;
+  padding: 8px 16px;
+
+  display: flex;
+  align-items: center;
+}
+
+.c-content-main {
+  padding-top: 64px;
+}
