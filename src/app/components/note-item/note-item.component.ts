@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+type NotePropType = {
+  title: string;
+  content: string;
+};
+
 @Component({
   selector: 'note-item',
   templateUrl: './note-item.component.html',
@@ -10,9 +15,7 @@ export class NoteItemComponent implements OnInit {
    * props
    */
   @Input()
-  title: string = '';
-  @Input()
-  content: string = '';
+  note: NotePropType = null;
 
   ngOnInit() {
     console.log('This is note item');
