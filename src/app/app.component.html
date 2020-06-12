@@ -1,15 +1,16 @@
 <!-- Header -->
 <div class="c-header">
   <strong>Angular Notes</strong>
+  <a [routerLink]="['/create']" routerLinkActive="active">Create</a>
 </div>
 
 <!-- Main -->
 <div class="c-content-main" role="main">
+  <!-- <h1>Welcome</h1> -->
   <!-- router-outlet -->
-  <!-- <router-outlet></router-outlet> -->
-  <h1>Welcome</h1>
+  <router-outlet></router-outlet>
   <!-- <note-list></note-list> -->
-  <home-page></home-page>
+  <!-- <home-page></home-page> -->
 </div>
 
 <!-- Footer -->
