@@ -1,7 +1,14 @@
 <!-- Header -->
 <div class="c-header">
-  <strong>Angular Notes</strong>
-  <a [routerLink]="['/create']" routerLinkActive="active">Create</a>
+  <div class="c-header__logo">
+    <a [routerLink]="['/']" routerLinkActive="active">
+      <strong>Angular Notes</strong>
+    </a>
+  </div>
+  
+  <div class="c-header__menu">
+    <a [routerLink]="['/create']" routerLinkActive="active">Create</a>
+  </div>
 </div>
 
 <!-- Main -->
