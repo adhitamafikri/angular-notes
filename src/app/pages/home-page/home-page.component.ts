@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { Store, select } from '@ngrx/store'
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'home-page',
@@ -8,9 +10,15 @@ export class HomePageComponent implements OnInit {
   /**
    * states
    */
-  title: string = 'Home Page component!';
+  title: string = 'Home Page component!'
+  noteList$: Observable<object>
+
+  constructor(private store: Store<{ home }>) {
+    this.noteList$ = store.pipe(select('home'))
+    console.log('something')
+  }
 
   ngOnInit() {
-    console.log('homepage', this.title);
+    console.log('homepage', this.title)
   }
 }
