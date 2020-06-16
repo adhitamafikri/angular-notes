@@ -1,4 +1,4 @@
-import { createReducer, on, Action } from '@ngrx/store'
+import { createReducer, on, Action, createFeatureSelector, createSelector } from '@ngrx/store'
 import { createNote, deleteNote, editNote } from './notes.actions'
 import { Note } from './../../models/note.model'
 
@@ -62,6 +62,6 @@ export function reducer(state: NotesState | undefined, action: Action) {
 }
 
 /**
- * @Selectors
+ * @Selectors will be imported in {name}.selectors.ts
  */
 export const getNotes = (state: NotesState) => state.notes
