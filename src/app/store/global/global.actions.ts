@@ -1,14 +1,9 @@
 import { createAction, props } from '@ngrx/store'
-
-type noteType = {
-  id: string,
-  title: string,
-  content: string,
-}
+import { Note } from './../models/note.model'
 
 export const createNote = createAction(
   '[Global] Create Note',
-  props<{ note: noteType }>()
+  props<{ note: Note }>()
 )
 
 export const deleteNote = createAction(
@@ -18,7 +13,7 @@ export const deleteNote = createAction(
 
 export const editNote = createAction(
   '[Global] Edit Note',
-  props<{ note: noteType }>()
+  props<{ note: Note }>()
 )
 
 export const greetUser = createAction(

@@ -1,14 +1,9 @@
-import { createReducer, on } from '@ngrx/store'
+import { createReducer, on, Action } from '@ngrx/store'
 import { createNote, deleteNote, editNote, greetUser } from './global.actions'
+import { Note } from './../models/note.model'
 
-type noteType = {
-  id: string,
-  title: string,
-  content: string,
-}
-
-type State = {
-  notes: noteType[],
+interface State {
+  notes: Note[],
   greetings: string
 }
 
@@ -26,9 +21,7 @@ const globalReducer = createReducer(
     }
   }),
   on(deleteNote, (state, { id }) => {
-    const temp = state.notes.map(item => {
-      if (item.id !== id) return item
-    })
+    const temp = state.notes.filter(item => item.id !== id)
     return {
       ...state,
       notes: [...temp]
@@ -57,3 +50,7 @@ const globalReducer = createReducer(
     return { ...state }
   })
 )
+
+export function reducer(state: State | undefined, action: Action) {
+  return globalReducer(state, action)
+}
