@@ -1,6 +1,6 @@
 <div class="pg-create-note">
   <h1>Create note page</h1>
-  <form class="form" [formGroup]="noteForm" (submit)="(onSubmit($event))">
+  <form class="form" [formGroup]="noteForm" (submit)="(onSubmit($event))" autocomplete="off">
     <div class="form-group">
       <label for="note_title" class="form-label">Title</label>
       <input
