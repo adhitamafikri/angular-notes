@@ -1,4 +1,11 @@
 <div class="c-note-item">
-    <h2>{{note.title}}</h2>
-    <p>{{note.content}}</p>
+  <h2>{{ note.title }}</h2>
+  <p>{{ note.content }}</p>
+  <div
+    role="button"
+    class="c-note-item__del-btn d-flex justify-content-center align-items-center"
+    (click)="onDeleteClick(note.id)"
+  >
+    &times;
+  </div>
 </div>

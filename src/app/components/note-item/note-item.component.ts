@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core'
+import { Store } from '@ngrx/store'
 
-type NotePropType = {
-  title: string
-  content: string
-}
+import { Note } from 'src/app/models/note.model'
+
+import * as fromNotes from 'src/app/store/notes/notes.reducer'
+import * as fromNotesAction from 'src/app/store/notes/notes.actions'
 
 @Component({
   selector: 'note-item',
@@ -12,8 +13,21 @@ type NotePropType = {
 })
 export class NoteItemComponent {
   /**
-   * props
+   * @props
    */
   @Input()
-  note: NotePropType = null
+  note: Note
+
+  /**
+   * @constructor
+   */
+  constructor(private store: Store<fromNotes.NotesState>) { }
+
+  /**
+   * Delete the corresponding note
+   * @param {String} noteId
+   */
+  onDeleteClick(noteId) {
+    this.store.dispatch(fromNotesAction.deleteNote({ id: noteId }))
+  }
 }
