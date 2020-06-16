@@ -1,18 +1,28 @@
 import { createReducer, on, Action } from '@ngrx/store'
-import { createNote, deleteNote, editNote, greetUser } from './global.actions'
-import { Note } from './../models/note.model'
+import { createNote, deleteNote, editNote } from './notes.actions'
+import { Note } from './../../models/note.model'
 
-interface State {
+/**
+ * Feature key
+ */
+export const featureKey = 'notes'
+
+/**
+ * @Reducers
+ */
+export interface NotesState {
   notes: Note[],
-  greetings: string
 }
 
-export const initialState: State = {
-  notes: [],
-  greetings: ''
+export const initialState: NotesState = {
+  notes: [
+    { id: '1', title: 'Baseus', content: 'Hello Baseus' },
+    { id: '2', title: 'Balenciagaa', content: 'Good Morning from Balenciagaa' },
+    { id: '3', title: 'Hugo', content: 'Good Night from Hugo' },
+  ],
 }
 
-const globalReducer = createReducer(
+const notesReducer = createReducer(
   initialState,
   on(createNote, (state, { note }) => {
     return {
@@ -45,12 +55,13 @@ const globalReducer = createReducer(
       notes: [...temp]
     }
   }),
-  on(greetUser, (state, { user }) => {
-    alert(`Hellow ${user}! Welcome to Angular Notes App!`)
-    return { ...state }
-  })
 )
 
-export function reducer(state: State | undefined, action: Action) {
-  return globalReducer(state, action)
+export function reducer(state: NotesState | undefined, action: Action) {
+  return notesReducer(state, action)
 }
+
+/**
+ * @Selectors
+ */
+export const getNotes = (state: NotesState) => state.notes
