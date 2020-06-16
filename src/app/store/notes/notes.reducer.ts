@@ -27,7 +27,7 @@ const notesReducer = createReducer(
   on(createNote, (state, { note }) => {
     return {
       ...state,
-      note: { ...note }
+      notes: [...state.notes, { ...note }]
     }
   }),
   on(deleteNote, (state, { id }) => {
